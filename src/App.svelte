@@ -1,47 +1,34 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
+  let inputValue = '';
+  let clicked = false;
+
+  function handleClick() {
+    clicked = true;
+  }
 </script>
 
-<main>
-  <div>
-    <a href="https://vite.dev" target="_blank" rel="noreferrer">
-      <img src={viteLogo} class="logo" alt="Vite Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-      <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-    </a>
+<main class="min-h-screen flex items-center justify-center p-4">
+  <div class="space-y-6 w-full max-w-md">
+    <h1 class="text-4xl font-bold text-center">Lab</h1>
+    
+    <div class="space-y-4">
+      <input
+        type="text"
+        placeholder="Enter something..."
+        bind:value={inputValue}
+        class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+      />
+      
+      <button
+        on:click={handleClick}
+        class="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded font-semibold transition"
+      >
+        Click me
+      </button>
+    </div>
+
+    {#if clicked}
+      <p class="text-center text-gray-300">You said: <span class="text-blue-400">{inputValue || '(nothing)'}</span></p>
+    {/if}
   </div>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
 </main>
-
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-  }
-</style>
