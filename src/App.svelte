@@ -1,4 +1,6 @@
 <script>
+  import SimplePage from './SimplePage.svelte';
+  let showSimple = false;
   let name = '';
   let goal = '';
   let submitted = false;
@@ -35,8 +37,24 @@
   }
 </script>
 
-<main class="min-h-screen flex items-center justify-center p-4">
-  <div class="space-y-6 w-full max-w-md bg-gray-900/60 border border-gray-700 rounded-xl p-6">
+<div class="flex justify-center mt-4">
+  <button
+    class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 font-semibold transition mr-2"
+    on:click={() => showSimple = false}
+    disabled={!showSimple}
+  >Main Form</button>
+  <button
+    class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 font-semibold transition"
+    on:click={() => showSimple = true}
+    disabled={showSimple}
+  >Simple Demo</button>
+</div>
+
+{#if showSimple}
+  <SimplePage />
+{:else}
+  <main class="min-h-screen flex items-center justify-center p-4">
+    <div class="space-y-6 w-full max-w-md bg-gray-900/60 border border-gray-700 rounded-xl p-6">
     <h1 class="text-3xl font-bold text-center">Study Goal Form</h1>
 
     <form class="space-y-4" on:submit={handleSubmit}>
@@ -83,5 +101,6 @@
         <p><span class="text-blue-400 font-semibold">Goal:</span> {goal}</p>
       </div>
     {/if}
-  </div>
-</main>
+    </div>
+  </main>
+{/if}
