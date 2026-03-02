@@ -3,7 +3,7 @@
 
 # My Svelte Playground
 
-A minimal, lab-style Svelte + Vite + Tailwind CSS project with two example pages: a Study Goal form and a Simple Demo.
+A minimal, lab-style Svelte + Vite + Tailwind CSS project with three example pages: a Study Goal form, a Simple Demo, and a vis-network (vis.js) interactive network.
 
 ## What's This?
 
@@ -18,27 +18,32 @@ Live demo: https://andreisugu.github.io/mySveltePlayground/
 
 - **Study Goal Form**: Enter your name and a weekly study goal, then save and see your submission. Includes validation, live character counter, and reset.
 - **Simple Demo Page**: The absolute simplest Svelte+Tailwind feature: type in a box, see it instantly below. No validation, no extras—just the basics.
-- **Page Switcher**: Toggle between the two pages using the buttons at the top.
+- **vis-network Demo**: A colorful, moving, interactive network graph using vis.js (vis-network) and Svelte. Demonstrates external JS library integration.
+- **Page Switcher**: Toggle between all three pages using the buttons at the top.
 - **Dark theme**: Styled with Tailwind CSS v4 utility classes.
 - **Deployed to GitHub Pages**
+
 
 ## Tech Stack
 
 - **Svelte 4** – The reactive UI framework used for building the app.
-- **Vite 8 (beta)** – The fast development server and build tool.
+- **Vite 8 (beta)** – The fast development server and build tool for all pages/components.
 - **Tailwind CSS** – Utility-first CSS framework for styling.
+- **vis-network (vis.js)** – For the interactive network demo page.
 - **Node.js 20+** – Required to run Vite, Svelte, and Tailwind tools. Node provides the JavaScript runtime for all build and dev scripts.
 - **npm 10+** – The package manager for installing dependencies and running scripts (like `npm run dev` or `npm run build`).
+
 
 
 ## Project Structure
 
 ```
 src/
-├── App.svelte        # Main component, page switcher, and Study Goal form
-├── SimplePage.svelte # Simplest demo page (input + display)
-├── main.js           # Entry point
-└── app.css           # Global styles, imports Tailwind v4
+├── App.svelte          # Main component, page switcher, and Study Goal form
+├── SimplePage.svelte   # Simplest demo page (input + display)
+├── VisNetworkPage.svelte # vis-network (vis.js) interactive network demo
+├── main.js             # Entry point
+└── app.css             # Global styles, imports Tailwind v4
 ```
 
 ## How it Works
@@ -66,12 +71,14 @@ This project demonstrates a basic Svelte form with live feedback and validation,
 	```
 	Open the printed URL (usually http://localhost:5173) in your browser.
 3. **Try the features:**
-	- Use the buttons at the top to switch between the Study Goal Form and the Simple Demo page.
+	- Use the buttons at the top to switch between the Study Goal Form, Simple Demo, and vis-network Demo pages.
 	- On the Study Goal Form: Enter your name and a study goal (max 120 characters), then click "Save Goal" to see your submission. If you leave a field empty or go over the character limit, you'll see an error message. Click "Reset" to clear the form.
 	- On the Simple Demo page: Just type in the box and see your text instantly below—no validation, no extras.
+	- On the vis-network Demo: View and interact with a colorful, moving network graph built with vis.js and Svelte.
 4. **Explore the code:**
 	- The Study Goal Form and page switcher are in `src/App.svelte`.
 	- The Simple Demo is in `src/SimplePage.svelte`.
+	- The vis-network demo is in `src/VisNetworkPage.svelte`.
 	- Styles are in `src/app.css` (using Tailwind v4).
 	- Configuration is in `vite.config.js` and `tailwind.config.js`.
 
@@ -114,7 +121,15 @@ Modify `App.svelte` or add new `.svelte` files to experiment with:
 - Event handling
 - Component composition
 
-Or try adding a new feature, like a priority dropdown, a todo list, or another minimal page!
+Or try adding a new feature, like a priority dropdown, a todo list, or another minimal or interactive page!
+## Need Help or Stuck?
+
+- If you’re new to Svelte, check out the official tutorial: https://svelte.dev/tutorial
+- For Tailwind CSS, see https://tailwindcss.com/docs
+- For vis-network (vis.js) docs: https://visjs.github.io/vis-network/
+- If you get stuck, try searching error messages or ask your lab instructor for help.
+
+You can also open an issue on this repo or fork and experiment safely!
 
 ## License
 
