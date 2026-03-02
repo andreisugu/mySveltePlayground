@@ -25,11 +25,11 @@ Live demo: https://andreisugu.github.io/mySveltePlayground/
 
 ## Tech Stack
 
-- Svelte 4
-- Vite 8 (beta)
-- Tailwind CSS
-- Node 20+
-- npm 10+
+- **Svelte 4** – The reactive UI framework used for building the app.
+- **Vite 8 (beta)** – The fast development server and build tool.
+- **Tailwind CSS** – Utility-first CSS framework for styling.
+- **Node.js 20+** – Required to run Vite, Svelte, and Tailwind tools. Node provides the JavaScript runtime for all build and dev scripts.
+- **npm 10+** – The package manager for installing dependencies and running scripts (like `npm run dev` or `npm run build`).
 
 ## Project Structure
 
