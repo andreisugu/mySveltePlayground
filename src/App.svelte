@@ -1,6 +1,7 @@
 <script>
   import SimplePage from './SimplePage.svelte';
-  let showSimple = false;
+  import VisNetworkPage from './VisNetworkPage.svelte';
+  let page = 'main'; // 'main', 'simple', 'vis'
   let name = '';
   let goal = '';
   let submitted = false;
@@ -37,21 +38,28 @@
   }
 </script>
 
-<div class="flex justify-center mt-4">
+<div class="flex justify-center mt-4 space-x-2">
   <button
-    class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 font-semibold transition mr-2"
-    on:click={() => showSimple = false}
-    disabled={!showSimple}
+    class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 font-semibold transition"
+    on:click={() => page = 'main'}
+    disabled={page === 'main'}
   >Main Form</button>
   <button
     class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 font-semibold transition"
-    on:click={() => showSimple = true}
-    disabled={showSimple}
+    on:click={() => page = 'simple'}
+    disabled={page === 'simple'}
   >Simple Demo</button>
+  <button
+    class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 font-semibold transition"
+    on:click={() => page = 'vis'}
+    disabled={page === 'vis'}
+  >vis-network Demo</button>
 </div>
 
-{#if showSimple}
+{#if page === 'simple'}
   <SimplePage />
+{:else if page === 'vis'}
+  <VisNetworkPage />
 {:else}
   <main class="min-h-screen flex items-center justify-center p-4">
     <div class="space-y-6 w-full max-w-md bg-gray-900/60 border border-gray-700 rounded-xl p-6">
